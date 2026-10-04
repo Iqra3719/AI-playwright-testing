@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import OpenAI from 'openai';
 import 'dotenv/config';
-
+test.skip(!process.env.GROQ_API_KEY, 'No GROQ_API_KEY in CI');
 const client = new OpenAI({
   apiKey: process.env.GROQ_API_KEY?.trim(),
   baseURL: 'https://api.groq.com/openai/v1'

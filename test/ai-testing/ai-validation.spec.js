@@ -4,6 +4,8 @@ import fs from 'fs';
 import 'dotenv/config';
 import { evaluateResponse } from './evaluator.js';
 
+test.skip(!process.env.GROQ_API_KEY, 'No GROQ_API_KEY in CI');
+
 const client = new OpenAI({
   apiKey: process.env.GROQ_API_KEY?.trim(),
   baseURL: 'https://api.groq.com/openai/v1'
@@ -19,10 +21,10 @@ for (const item of prompts) {
     });
     const aiText = response.choices[0].message.content;
     console.log(`Prompt ${item.id}: ${aiText.substring(0,100)}`);
-    
+
     const evaluation = await evaluateResponse(item.prompt, aiText);
     console.log(`Eval ${item.id}:`, evaluation);
-    
+
     expect(evaluation.relevance).toBeGreaterThan(3);
     expect(evaluation.isToxic).toBe(false);
   });

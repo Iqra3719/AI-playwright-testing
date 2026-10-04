@@ -45,3 +45,13 @@ npx playwright install --with-deps
 npm test
 
 Completed by Iqra3719 - Oct 2026
+## 📸 CI/CD Success Screenshots
+
+### GitHub Actions - Success #5
+![GitHub Actions Success](Screenshot%20(237).png)
+
+### Azure DevOps - Manually run by Iqra Ch
+![Azure Pipeline Detail](Screenshot%20(238).png)
+
+### Azure DevOps - 2 Green Runs
+![Azure Pipeline Runs](Screenshot%20(239).png)

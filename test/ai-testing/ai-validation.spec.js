@@ -7,7 +7,7 @@ import { evaluateResponse } from './evaluator.js';
 test.skip(!process.env.GROQ_API_KEY, 'No GROQ_API_KEY in CI');
 
 const client = new OpenAI({
-  apiKey: process.env.GROQ_API_KEY?.trim(),
+  apiKey: process.env.GROQ_API_KEY || 'dummy-key-for-ci',
   baseURL: 'https://api.groq.com/openai/v1'
 });
 
